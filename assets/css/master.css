@@ -1,0 +1,427 @@
+/* Start global */
+:root {
+  --mainColor: ;
+  --secondaryColor: ;
+  --mainTransition: 0.3s;
+  --mainPaddingTop: 50px;
+  --mainPaddingBottom: 50px;
+  --sectionBackground: #ececec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+/* End global */
+
+/* Start header */
+header .top-header {
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 5px 0;
+}
+header .top-header span {
+  color: red;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100px;
+}
+header .container .logo {
+  font-size: 40px;
+}
+header .container ul {
+  display: flex;
+}
+header .container ul li {
+  margin-inline-end: 20px;
+  font-size: 18px;
+}
+header .container .icons li:last-child {
+  position: relative;
+}
+header .container .icons li:last-child span {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 13px;
+  border-radius: 50%;
+}
+@media (max-width: 767px) {
+  header .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+/* End header */
+
+/* Start landing */
+.landing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px 30px;
+}
+.landing img {
+  max-width: 100%;
+}
+.landing a {
+  position: relative;
+}
+.landing a h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 60px;
+}
+@media (max-width: 767px) {
+  .landing {
+    padding: 20px 0;
+  }
+}
+/* End landing */
+
+/* Start trending */
+.trending {
+  padding-top: var(--mainPaddingTop);
+  padding-bottom: var(--mainPaddingBottom);
+}
+.trending .container .top {
+  text-align: center;
+}
+.trending .container .top .breadcrumb {
+  justify-content: center;
+  background-color: transparent;
+}
+.trending .container .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.trending .container .cards .card {
+  border: none;
+}
+.trending .container .cards .photo {
+  overflow: hidden;
+  position: relative;
+}
+.trending .container .cards .photo::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0%;
+  height: 0%;
+  background-color: rgb(221, 221, 221, 0.2);
+  transition: 0.3s;
+}
+.trending .container .cards .photo:hover::after {
+  width: 100%;
+  height: 100%;
+}
+.trending .container .cards a .card img {
+  width: 100%;
+  transition: var(--mainTransition);
+}
+.trending .container .cards a .card img:hover {
+  transform: rotate(3deg) scale(1.1);
+}
+.trending .container .cards a .card p:first-of-type {
+  font-weight: bold;
+  font-size: 17px;
+  margin: 10px 0;
+}
+.trending .container .cards a .card p:last-of-type {
+  font-size: 17px;
+}
+.trending .container .cards a .card p[class="price"] del {
+  color: rgb(145, 145, 145);
+}
+.trending .container div.cards a {
+  position: relative;
+}
+.trending .container .cards a .card.special::after {
+  content: "-33%";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 15px;
+  color: white;
+  background-color: brown;
+  padding: 5px 10px;
+}
+.trending .container button {
+  display: flex;
+  margin: 0px auto;
+  margin-top: 30px;
+}
+/* End trending */
+
+/* Start featured */
+.featured {
+  padding-bottom: var(--mainPaddingBottom);
+}
+.featured .container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.featured .container .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+.featured .container .cards .card {
+  border: none;
+}
+.featured .container .cards .card .photo {
+  position: relative;
+}
+.featured .container .cards .card .photo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 100%;
+  background-color: rgb(0, 0, 255, 0.1);
+  transition: var(--mainTransition);
+}
+.featured .container .cards .card .photo:hover::before {
+  width: 100%;
+}
+.featured .container .cards .card img {
+  max-width: 100%;
+}
+.featured .container .cards .card .text {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.featured .container .cards .card .text p {
+  font-size: 18px;
+}
+.featured .container .cards .card .text h3 {
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 50px black;
+}
+.featured .container .cards .card .text .btn-dark {
+  background-color: transparent;
+  border-color: white;
+}
+.featured .container .cards .card .text .btn-dark:hover {
+  background-color: rgb(0, 0, 255, 0.6);
+}
+/* End featured */
+
+/* Start plus */
+.plus .container .boxs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  text-align: center;
+  padding-bottom: var(--mainPaddingBottom);
+}
+.plus .container .boxs img {
+  max-width: 100%;
+  margin-bottom: 30px;
+}
+.plus .container .boxs .box {
+  position: relative;
+}
+.plus .container .boxs .box:not(:last-child):after {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: rgb(209, 209, 209);
+}
+@media (max-width: 1200px) {
+  .plus .container .boxs .box:not(:last-child):after {
+    display: none;
+  }
+}
+/* End plus */
+
+/* Start gallary */
+.gallary {
+  padding-top: var(--mainPaddingTop);
+  padding-bottom: var(--mainPaddingBottom);
+}
+.gallary .container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.gallary .container .photos {
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(5, 1fr);
+  gap: 5px;
+}
+.gallary .container .photos img {
+  max-width: 100%;
+}
+.gallary .container .photos .special {
+  grid-area: 1 / 1 / span 2 / span 2;
+  overflow: hidden;
+  position: relative;
+}
+.gallary .container .photos .special img {
+  width: 200%;
+}
+.gallary .container .photos .special .text {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--mainTransition);
+}
+.gallary .container .photos .special:hover .text {
+  bottom: 0;
+}
+.gallary .container .photos .special .text a {
+  color: white;
+}
+.gallary .container .photos .special .bar {
+  position: absolute;
+  top: 10px;
+  right: -100%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--mainTransition);
+}
+.gallary .container .photos .special:hover .bar {
+  right: 10px;
+}
+/* End gallary */
+
+/* footer */
+
+footer {
+  background-color: #1a191d;
+  padding-top: var(--mainPaddingTop);
+  padding-bottom: 20px;
+}
+
+footer .container .top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+footer .container .top h2 {
+  color: white;
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
+footer .container .top p {
+  color: #cfcfcf;
+  font-size: 13px;
+}
+
+footer .container .top .about p {
+  font-size: 20px;
+}
+
+footer .container .top p i {
+  color: var(--primaryColor);
+  padding-right: 5px;
+}
+
+footer .container .top a {
+  text-decoration: none;
+  display: block;
+  color: #cfcfcf;
+  font-size: 13px;
+  margin: 5px 0;
+}
+
+footer .container .top .update input {
+  padding: 10px;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 13px;
+  background-color: #0f0e11;
+}
+
+footer .container .top .update::after {
+  content: "\2192";
+  position: relative;
+  right: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+footer .container .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding-top: 5px;
+  font-size: 14px;
+}
+
+footer .container .bottom span {
+  color: var(--primaryColor);
+}
+
+footer .container hr {
+  width: 100%;
+  border: 1px solid rgb(66, 66, 66);
+  opacity: 0.3;
+}
+
+footer .container .bottom .social {
+  display: flex;
+  gap: 20px;
+}
+
+footer .container .bottom .social img {
+  width: 20px;
+}
+
+/* END footer */
